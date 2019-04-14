@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>blog</title>
+    <style>
+        body{text-align:center} 
+        #sokoban {
+            margin: 100px auto;
+        }
+        .back {
+            position:absolute;
+            left:40%;
+            background-color:blue;
+            border:40px solid grey;
+            width: 10%;
+            height: 200px;
+        }
+        .backTwo {
+            position:absolute;
+            left:30%;
+            background-color:blue;
+            border:40px solid grey;
+            width: 40%;
+            height: 400px;
+        }
+        .wall{
+            position:absolute;
+            left:40%;
+            border:0px solid transparent;
+            width: 20%;
+            height: 40%;
+            background-color:grey;
+        }
+        .wallTwo{
+            position:absolute;
+            left:40%;
+            border:0px solid transparent;
+            width: 10%;
+            height: 60%;
+            background-color:grey;
+        }
+        .box{
+            position:absolute;
+            left:20%;
+            top:20%;
+            border:0px solid transparent;
+            width: 20%;
+            height: 20%;
+            background-color:yellow;
+        }
+        .target{
+            position:absolute;
+            left:80%;
+            top:85%;
+            border:0px solid transparent;
+            width: 18px;
+            height: 18px;
+            border-radius: 18px;
+            background-color:black;
+        }
+        .people{
+            position:absolute;
+            left:20%;
+            top:10%;
+            border:0px solid transparent;
+            width: 18px;
+            height: 18px;
+            font-size:10px;
+            color:white;
+            border-radius: 18px;
+            background-color:red;
+        }
+        .directionBtn{
+            position:absolute;
+            top:60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button onClick="ChooseLevel(1)">第一关</button>
+        <button onClick="ChooseLevel(2)">第二关</button>
+        <div id="sokoban"></div>
+    <div>
+<script src="./Sokoban.js"></script>
+<script>
+    var level;
+    function ChooseLevel(data){
+        level=data;
+        let maze = new Sokoban({
+            showArea: 'sokoban',
+            level: level,  
+            autohandlesavefunc: function(data){
+                if(data){
+                    console.log("游戏成功，恭喜通关!");
+                }else{
+                    console.log("游戏失败，继续努力1")
+                }
+            },
+        });
+    }
+</script>
+
+</body>
+
+</html>
